@@ -42,7 +42,12 @@ class ColorPickerProxy: UIViewController, UIColorPickerViewControllerDelegate {
         let colorString = hexStringFromColor(color: viewController.selectedColor)
         self.callback([colorString])
     }
-    
+
+    func colorPickerViewController(_ viewController: UIColorPickerViewController, didSelect color: UIColor, continuously: Bool) {
+        let colorString = hexStringFromColor(color: color)
+        self.callback([colorString])
+    }
+
     func hexStringFromColor(color: UIColor) -> String {
         let rgba = color.cgColor.components
         let r: CGFloat = rgba?[0] ?? 0.0
