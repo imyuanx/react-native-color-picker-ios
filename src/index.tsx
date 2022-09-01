@@ -53,9 +53,14 @@ const ColorPicker = {
         : undefined,
     };
 
+    const callback_ = (color: string) => {
+      console.log('test/proxy/callback/color', color);
+      callback && callback(color);
+    };
+
     RNCColorPicker.showColorPicker(
       convertedOptions,
-      callback ? callback : () => {}
+      callback ? callback_ : () => {}
     );
   },
 };
