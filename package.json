@@ -1,6 +1,6 @@
 {
   "name": "react-native-color-picker-ios-test",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "iOS14 Color Picker Module for React Native",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",

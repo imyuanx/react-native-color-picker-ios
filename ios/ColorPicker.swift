@@ -44,8 +44,10 @@ class ColorPickerProxy: UIViewController, UIColorPickerViewControllerDelegate {
     }
 
     func colorPickerViewController(_ viewController: UIColorPickerViewController, didSelect color: UIColor, continuously: Bool) {
-        let colorString = hexStringFromColor(color: color)
-        self.callback([colorString])
+        if !continuously {
+            let colorString = hexStringFromColor(color: color)
+            self.callback([colorString])
+        }
     }
 
     func hexStringFromColor(color: UIColor) -> String {
@@ -55,9 +57,7 @@ class ColorPickerProxy: UIViewController, UIColorPickerViewControllerDelegate {
         let b: CGFloat = rgba?[2] ?? 0.0
         let a: CGFloat = rgba?[3] ?? 0.0
 
-        // let hexString = String(format: "#%02lX%02lX%02lX%02lX", lroundf(Float(r * 255)), lroundf(Float(g * 255)), lroundf(Float(b * 255)), lroundf(Float(a * 255)))
-
-        let hexString = String(format: "#%02lX%02lX%02lX%02lX", lroundf(Float(0.0 * 255)), lroundf(Float(0.0 * 255)), lroundf(Float(0.0 * 255)), lroundf(Float(0.0 * 255)))
+        let hexString = String(format: "#%02lX%02lX%02lX%02lX", lroundf(Float(r * 255)), lroundf(Float(g * 255)), lroundf(Float(b * 255)), lroundf(Float(a * 255)))
         return hexString
      }
 }
